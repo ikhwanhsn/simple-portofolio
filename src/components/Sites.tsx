@@ -15,10 +15,13 @@ const Sites = () => {
   ];
   return (
     <main className="mt-14">
-      <h1 className="font-mono text-xs">Sites</h1>
-      <ul className="mt-4">
-        {dataSites.map((item) => (
-          <li className="flex justify-between items-center font-sans mb-5 ml-1">
+      <h1 className="font-mono text-xs text-greyText">Sites</h1>
+      <ul className="mt-4 font-medium">
+        {dataSites.map((item, index) => (
+          <li
+            className="flex justify-between items-center font-sans mb-5 ml-1"
+            key={index}
+          >
             <section className="group">
               <span className="cursor-pointer hover:text-greyText hover:border-b hover:border-greyText">
                 {item.title}

@@ -13,8 +13,8 @@ const Navbar = () => {
       className={`flex justify-between items-center text-greyText px-1 border-greyText border-opacity-15 border-b pb-3 font-mono text-xs`}
     >
       <ul className="flex items-center justify-center gap-2">
-        {navbar.map((item) => (
-          <li>
+        {navbar.map((item, index) => (
+          <li key={index}>
             <Link
               href={`${item === "Work" ? "/" : `/${item.toLowerCase()}`}`}
               className={`hover:border-b hover:border-greyText ${

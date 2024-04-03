@@ -5,16 +5,16 @@ const Profile = () => {
   return (
     <main className="mt-10">
       <h1 className="font-mono text-xs text-greyText">Profile</h1>
-      <p className="mt-3">
+      <p className="mt-3 font-medium">
         A full stack designer based in Glasgow but working remotely. A knowledge
         sponge, Notion wiz and master of auto layout. I craft sleek 0 to 1
         experiences that deliver maximum impact with bare essentials.
       </p>
-      <p className="mt-2">
+      <p className="mt-2 font-medium">
         When I'm not staring at screens, I'm usually busy with Ashtanga yoga, my
         Frenchie and collecting notes.
       </p>
-      <p className="mt-2 mb-10">
+      <p className="mt-2 mb-10 font-medium">
         Latest portfolio of work available upon request.
       </p>
       <Card
@@ -52,7 +52,7 @@ const Card = ({ image, title, description }: CardProps) => {
       />
       <aside>
         <h3 className="font-mono text-greyText text-xs">{title}</h3>
-        <p>{description}</p>
+        <p className="font-medium">{description}</p>
       </aside>
     </section>
   );

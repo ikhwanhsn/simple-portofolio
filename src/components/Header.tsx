@@ -12,7 +12,7 @@ const Header = () => {
           height={60}
           className="rounded-full"
         />
-        <aside>
+        <aside className="font-medium">
           <h1>Ikhwanul Husna</h1>
           <p>
             Fullstack Developer @{" "}
