@@ -4,21 +4,23 @@ import Header from "@/components/Header";
 import Misc from "@/components/Misc";
 import Play from "@/components/Play";
 import Profile from "@/components/Profile";
-import Sites from "@/components/Sites";
-import Work from "@/components/Work";
-import Writing from "@/components/Writing";
+import Projects from "@/components/Projects";
+import FunProject from "@/components/FunProject";
+import Skills from "@/components/Skills";
+import Experience from "@/components/Experience";
 
 export default function Home() {
   return (
     <main className="mt-12">
       <Header />
       <Profile />
+      <Experience />
+      <Projects />
       <Misc />
-      <Sites />
-      <Writing />
-      <Work />
+      <Skills />
+      <FunProject />
       <Contact />
-      <Play />
+      {/* <Play /> */}
       <Footer />
     </main>
   );

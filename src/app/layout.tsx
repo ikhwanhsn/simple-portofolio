@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import Provider from "./provider";
 
 export const metadata: Metadata = {
   title: "Ikhwanul Husna",
@@ -20,11 +20,8 @@ export default function RootLayout({
         <title>Ikhwanul Husna</title>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`bg-background text-text font-sans`}>
-        <main className="max-w-lg mx-auto text-sm pt-10">
-          <Navbar />
-          {children}
-        </main>
+      <body className={`font-sans`}>
+        <Provider>{children}</Provider>
       </body>
     </html>
   );

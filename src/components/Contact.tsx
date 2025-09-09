@@ -4,7 +4,7 @@ import cv from "../../public/img/cv.png";
 import Image from "next/image";
 
 const Contact = () => {
-  const contactList = ["email", "instagram", "github", "linkedin", "cv"];
+  const contactList = ["email", "instagram", "github", "linkedin"];
   return (
     <main>
       <h1 className="font-mono text-xs text-greyText mt-12 mb-7">Contact</h1>
@@ -16,11 +16,11 @@ const Contact = () => {
                 item === "email"
                   ? "mailto:ikhwanulhusna111@gmail.com"
                   : item === "instagram"
-                  ? "https://www.instagram.com/ikhwanulhusna/"
+                  ? "https://www.instagram.com/ikhwanhsn21/"
                   : item === "github"
-                  ? "https://github.com/ikhwanulhusna"
+                  ? "https://github.com/ikhwanhsn"
                   : item === "linkedin"
-                  ? "https://www.linkedin.com/in/ikhwanulhusna/"
+                  ? "https://www.linkedin.com/in/ikhwanhsn/"
                   : item === "cv"
                   ? "https://drive.google.com/file/d/1kL5yQk0m7F6fFb4gkQlLb8p5JG8wQl4a/view?usp=sharing"
                   : ""

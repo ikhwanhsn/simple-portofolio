@@ -4,13 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ setTheme }: { setTheme: (theme: string) => void }) => {
   const navbar = ["Work", "About", "Blog"];
   const pathname = usePathname();
   const [isDarkMode, setIsDarkMode] = useState(false);
   return (
     <nav
-      className={`flex justify-between items-center text-greyText px-1 border-greyText border-opacity-15 border-b pb-3 font-mono text-xs`}
+      className={`flex justify-between items-center text-greyText px-1 border-greyText border-opacity-15 border-b pb-3 font-mono text-xs `}
     >
       <ul className="flex items-center justify-center gap-2">
         {navbar.map((item, index) => (
@@ -20,7 +20,7 @@ const Navbar = () => {
               className={`hover:border-b hover:border-greyText ${
                 pathname ===
                 `${item === "Work" ? "/" : `/${item.toLowerCase()}`}`
-                  ? "border-b font-bold text-text border-greyText"
+                  ? "border-b font-bold border-greyText"
                   : ""
               }`}
             >
@@ -30,12 +30,17 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-      <button
+      {/* <button
         className="w-28 px-5 py-2 rounded-full transition-all duration-200 ease-in hover:bg-cardHover"
-        onClick={() => setIsDarkMode(!isDarkMode)}
+        onClick={() => {
+          setIsDarkMode(!isDarkMode);
+          setTheme(
+            isDarkMode ? "bg-background text-text" : "bg-gray-900 text-white"
+          );
+        }}
       >
         {isDarkMode ? "Lights on" : "Lights off"}
-      </button>
+      </button> */}
     </nav>
   );
 };

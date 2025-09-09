@@ -1,12 +1,19 @@
 const Misc = () => {
   const dataMisc = [
     {
-      title: "Mentor at ADPList",
-      date: "2022",
+      title: "Winner Espresso Hackathon",
+      date: "2025",
+      link: "https://dorahacks.io/hackathon/build-and-brew/winner",
     },
     {
-      title: "Writer for the UX Collective",
-      date: "2020",
+      title: "Finalist Educhain Hackathon",
+      date: "2025",
+      link: "https://www.hackquest.io/hackathons/EDU-Chain-Semester-3",
+    },
+    {
+      title: "Funded on PKM-PI Program",
+      date: "2024",
+      link: "https://wawasan.suaramerdeka.com/semarang/0813079170/perkenalkan-web-goumkm-buatan-usm-tim-pkm-usm-sosialisasi-ke-pelaku-umkm",
     },
   ];
   return (
@@ -14,7 +21,9 @@ const Misc = () => {
       <h1 className="font-mono text-xs text-greyText">Misc.</h1>
       <ul className="mt-4 font-medium">
         {dataMisc.map((item, index) => (
-          <li
+          <a
+            href={item.link}
+            target="_blank"
             className="flex justify-between items-center font-sans mb-5 ml-1"
             key={index}
           >
@@ -27,7 +36,7 @@ const Misc = () => {
               </span>
             </section>
             <p>{item.date}</p>
-          </li>
+          </a>
         ))}
       </ul>
     </main>

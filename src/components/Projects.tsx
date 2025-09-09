@@ -1,24 +1,29 @@
-const Sites = () => {
-  const dataSites = [
+const Projects = () => {
+  const dataProjects = [
     {
-      title: "What I Love Now",
+      title: "Crowdfunding dApps",
+      date: "2025",
+      link: "http://tabriiz.com/",
+    },
+    {
+      title: "Nation Trading dApps",
+      date: "2025",
+      link: "https://bethenations.vercel.app/",
+    },
+    {
+      title: "GoUMKM",
       date: "2024",
-    },
-    {
-      title: "Awesome Newsletters",
-      date: "2023",
-    },
-    {
-      title: "The Type Wunderkammer",
-      date: "2022",
+      link: "https://www.goumkm.store/",
     },
   ];
   return (
     <main className="mt-14">
-      <h1 className="font-mono text-xs text-greyText">Sites</h1>
+      <h1 className="font-mono text-xs text-greyText">Projects</h1>
       <ul className="mt-4 font-medium">
-        {dataSites.map((item, index) => (
-          <li
+        {dataProjects.map((item, index) => (
+          <a
+            href={item.link}
+            target="_blank"
             className="flex justify-between items-center font-sans mb-5 ml-1"
             key={index}
           >
@@ -31,11 +36,11 @@ const Sites = () => {
               </span>
             </section>
             <p>{item.date}</p>
-          </li>
+          </a>
         ))}
       </ul>
     </main>
   );
 };
 
-export default Sites;
+export default Projects;

@@ -1,20 +1,29 @@
-const Writing = () => {
-  const dataSites = [
+const Experience = () => {
+  const dataExperience = [
     {
-      title: "Shipping 'fast'",
-      date: "17.02.2024",
+      title: "Wecash",
+      date: "2025",
+      link: "https://wecash.ai/",
     },
     {
-      title: "The Flâneur approach to design",
-      date: "22.03.2020",
+      title: "Tabriiz",
+      date: "2025",
+      link: "https://tabriiz.com/",
+    },
+    {
+      title: "Dry Code",
+      date: "2023",
+      link: "#",
     },
   ];
   return (
-    <main className="mt-14">
-      <h1 className="font-mono text-xs text-greyText">Writing</h1>
+    <main className="mt-12">
+      <h1 className="font-mono text-xs text-greyText">Experience</h1>
       <ul className="mt-4 font-medium">
-        {dataSites.map((item, index) => (
-          <li
+        {dataExperience.map((item, index) => (
+          <a
+            href={item.link}
+            target="_blank"
             className="flex justify-between items-center font-sans mb-5 ml-1"
             key={index}
           >
@@ -27,11 +36,11 @@ const Writing = () => {
               </span>
             </section>
             <p>{item.date}</p>
-          </li>
+          </a>
         ))}
       </ul>
     </main>
   );
 };
 
-export default Writing;
+export default Experience;

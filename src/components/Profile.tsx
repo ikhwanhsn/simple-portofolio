@@ -5,19 +5,20 @@ const Profile = () => {
   return (
     <main className="mt-10">
       <h1 className="font-mono text-xs text-greyText">Profile</h1>
-      <p className="mt-3 font-medium">
-        A full stack designer based in Glasgow but working remotely. A knowledge
-        sponge, Notion wiz and master of auto layout. I craft sleek 0 to 1
-        experiences that deliver maximum impact with bare essentials.
+      <p className="mt-3 font-medium text-justify">
+        22-year-old Frontend Developer from Indonesia, working remotely. I
+        thrive on learning fast, building smart, and turning ideas into sleek
+        0-to-1 products that deliver impact with minimal overhead. A Notion
+        tinkerer, auto-layout enthusiast, and endless learner at heart.
       </p>
-      <p className="mt-2 font-medium">
-        When I'm not staring at screens, I'm usually busy with Ashtanga yoga, my
-        Frenchie and collecting notes.
+      <p className="mt-2 font-medium text-justify">
+        When I’m not coding, I’m usually busy managing my own business and
+        exploring ways to build systems that scale.
       </p>
       <p className="mt-2 mb-10 font-medium">
         Latest portfolio of work available upon request.
       </p>
-      <Card
+      {/* <Card
         image={profile}
         title="Client Page 2.0"
         description="Empowering accounting partners to better manage their own clients and workflows"
@@ -27,7 +28,7 @@ const Profile = () => {
         image={profile}
         title="Partner Product Led Growth"
         description="Optimising costs from the partner funnel with productised flows. Request access"
-      />
+      /> */}
     </main>
   );
 };
