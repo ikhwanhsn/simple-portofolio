@@ -6,17 +6,24 @@ const Profile = () => {
     <main className="mt-10">
       <h1 className="font-mono text-xs text-greyText">Profile</h1>
       <p className="mt-3 font-medium text-justify">
-        22-year-old Frontend Developer from Indonesia, working remotely. I
-        thrive on learning fast, building smart, and turning ideas into sleek
-        0-to-1 products that deliver impact with minimal overhead. A Notion
-        tinkerer, auto-layout enthusiast, and endless learner at heart.
+        22-year-old Frontend Engineer from Indonesia, working remotely. I
+        specialize in building intuitive, high-performance user experiences for
+        fintech and decentralized finance platforms, with a focus on scalability
+        and reliability for millions of users.
       </p>
       <p className="mt-2 font-medium text-justify">
-        When I’m not coding, I’m usually busy managing my own business and
-        exploring ways to build systems that scale.
+        I thrive on shipping fast, designing seamless 0-to-1 products, and
+        translating complex financial workflows into sleek, user-friendly
+        interfaces. Passionate about bridging technology and finance, I craft
+        frontend systems that empower growth, security, and accessibility at
+        scale.
+      </p>
+      <p className="mt-2 font-medium">
+        Beyond coding, I manage my own business and constantly explore ways to
+        design systems that grow sustainably.
       </p>
       <p className="mt-2 mb-10 font-medium">
-        Latest portfolio of work available upon request.
+        Latest portfolio of fintech & DeFi work available upon request.
       </p>
       {/* <Card
         image={profile}

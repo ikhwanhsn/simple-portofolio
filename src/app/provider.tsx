@@ -9,7 +9,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeContext.Provider value={theme}>
       <div className={theme}>
-        <div className="max-w-lg mx-auto text-sm pt-10">
+        <div className="max-w-lg mx-auto text-sm pt-10 px-5 sm:px-0">
           <Navbar setTheme={setTheme} />
           {children}
         </div>

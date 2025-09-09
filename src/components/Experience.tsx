@@ -11,6 +11,11 @@ const Experience = () => {
       link: "https://tabriiz.com/",
     },
     {
+      title: "Nova Capital",
+      date: "2024",
+      link: "#",
+    },
+    {
       title: "Dry Code",
       date: "2023",
       link: "#",
