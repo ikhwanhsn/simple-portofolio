@@ -5,9 +5,10 @@ import { GeistMono } from "geist/font/mono";
 import Provider from "./provider";
 import { SITE_URL, profile } from "@/data/profile";
 
-const title = "Ikhwanul Husna | Founder of Syra AI · CTO of S3Labs";
+const title =
+  "Ikhwanul Husna | Founder of Syra AI · Agentrail · CTO of S3Labs";
 const description =
-  "One human running a multi-billion-dollar company with agents. Founder of Syra AI. CTO of S3Labs. Scale with agents, not headcount.";
+  "One human running a multi-billion-dollar company with agents. Founder of Syra AI and Agentrail. CTO of S3Labs. Scale with agents, not headcount.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -60,7 +61,11 @@ const jsonLd = {
   "@type": "Person",
   name: profile.name,
   url: SITE_URL,
-  jobTitle: ["Founder of Syra AI", "CTO of S3Labs"],
+  jobTitle: [
+    "Founder of Syra AI",
+    "Founder of Agentrail",
+    "CTO of S3Labs",
+  ],
   description: profile.tagline,
   email: profile.contact.email,
   address: {

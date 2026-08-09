@@ -7,11 +7,11 @@ import profileImage from "../../../../public/img/profile.jpg";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `${profile.tagline}. Founder of Syra AI. CTO of S3Labs. ${profile.thesis}.`,
+  description: `${profile.tagline}. Founder of Syra AI and Agentrail. CTO of S3Labs. ${profile.thesis}.`,
   alternates: { canonical: `${SITE_URL}/about` },
   openGraph: {
     title: "About",
-    description: `${profile.tagline}. Founder of Syra AI. CTO of S3Labs. ${profile.thesis}.`,
+    description: `${profile.tagline}. Founder of Syra AI and Agentrail. CTO of S3Labs. ${profile.thesis}.`,
     url: `${SITE_URL}/about`,
   },
 };
@@ -92,9 +92,10 @@ const AboutPage = () => {
             My mission is to build the rails and the ecosystem that make that
             model real. Through {profile.products.syra.name}, I am building
             machine money for agents on Solana. Through{" "}
-            {profile.products.s3labs.name}, I am building the AI-powered Web3
-            ecosystem where products, opportunities, and communities help
-            builders move faster.
+            {profile.products.agentrail.name}, I ship agent-native products for
+            clients. Through {profile.products.s3labs.name}, I am building the
+            AI-powered Web3 ecosystem where products, opportunities, and
+            communities help builders move faster.
           </p>
           <p>
             Every week I ask the same question: what can an agent own end to
@@ -181,7 +182,8 @@ const AboutPage = () => {
             <span className="absolute -left-[5px] top-1.5 size-2.5 rounded-full bg-text" />
             <p className="font-mono text-xs text-greyText">Now</p>
             <p className="mt-1 font-medium">
-              Running the company through {profile.products.syra.name} and{" "}
+              Running the company through {profile.products.syra.name},{" "}
+              {profile.products.agentrail.name}, and{" "}
               {profile.products.s3labs.name}
             </p>
           </li>

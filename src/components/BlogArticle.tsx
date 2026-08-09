@@ -4,7 +4,7 @@ import { getAllPosts } from "@/data/blog";
 import { profile } from "@/data/profile";
 
 const linkify = (text: string) => {
-  const parts = text.split(/(Syra AI|S3Labs)/g);
+  const parts = text.split(/(Syra AI|Agentrail|S3Labs)/g);
   return parts.map((part, index) => {
     if (part === "Syra AI") {
       return (
@@ -16,6 +16,19 @@ const linkify = (text: string) => {
           className="hover:border-b hover:text-greyText hover:border-greyText"
         >
           Syra AI
+        </a>
+      );
+    }
+    if (part === "Agentrail") {
+      return (
+        <a
+          key={index}
+          href={profile.products.agentrail.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:border-b hover:text-greyText hover:border-greyText"
+        >
+          Agentrail
         </a>
       );
     }

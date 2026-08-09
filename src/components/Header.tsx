@@ -10,7 +10,6 @@ const collabMailto = `mailto:${profile.contact.email}?subject=${encodeURICompone
 
 const Header = () => {
   const { agents, humans, status } = profile.workforce;
-  const [syra, s3labs] = profile.roles;
 
   return (
     <header>
@@ -42,25 +41,21 @@ const Header = () => {
             </a>
           </div>
           <p>{profile.tagline}</p>
-          <p>
-            {syra.title} of{" "}
-            <a
-              href={syra.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:border-b hover:text-greyText hover:border-greyText"
-            >
-              {syra.org}
-            </a>{" "}
-            · {s3labs.title} of{" "}
-            <a
-              href={s3labs.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:border-b hover:text-greyText hover:border-greyText"
-            >
-              {s3labs.org}
-            </a>
+          <p className="text-pretty">
+            {profile.roles.map((role, index) => (
+              <span key={role.org}>
+                {index > 0 ? " · " : null}
+                {role.title} of{" "}
+                <a
+                  href={role.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:border-b hover:text-greyText hover:border-greyText"
+                >
+                  {role.org}
+                </a>
+              </span>
+            ))}
           </p>
         </aside>
       </section>

@@ -1,13 +1,20 @@
 export const now = {
   updated: "2026-08-09",
   displayDate: "Aug 2026",
-  focus: "Shipping Syra AI as machine money for agents, and sharpening S3Labs as the builder ecosystem around that thesis.",
+  focus:
+    "Shipping Syra AI as machine money for agents, growing Agentrail as the build studio, and sharpening S3Labs as the builder ecosystem around that thesis.",
   building: [
     {
       title: "Syra AI",
       detail:
         "x402 pay-per-call APIs, MCP, and typed SDK so agents can earn, hold, and move capital on Solana.",
       url: "https://www.syraa.fun/",
+    },
+    {
+      title: "Agentrail",
+      detail:
+        "Agent-native build studio for MCP servers, x402 monetization, Solana agent dApps, and AI integrations.",
+      url: "https://agentrail.fun/",
     },
     {
       title: "S3Labs",

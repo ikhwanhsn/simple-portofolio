@@ -7,34 +7,23 @@ const collabMailto = `mailto:${profile.contact.email}?subject=${encodeURICompone
 )}`;
 
 const Profile = () => {
-  const [syra, s3labs] = profile.roles;
-
   return (
     <section className="mt-10">
       <h2 className="font-mono text-xs text-greyText">Profile</h2>
       <p className="mt-3 font-medium text-justify">{profile.summary[0]}</p>
-      <p className="mt-2 font-medium text-justify">
-        <a
-          href={syra.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:border-b hover:text-greyText hover:border-greyText"
-        >
-          {syra.org}
-        </a>{" "}
-        {syra.description}
-      </p>
-      <p className="mt-2 font-medium text-justify">
-        <a
-          href={s3labs.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:border-b hover:text-greyText hover:border-greyText"
-        >
-          {s3labs.org}
-        </a>{" "}
-        {s3labs.description}
-      </p>
+      {profile.roles.map((role) => (
+        <p key={role.org} className="mt-2 font-medium text-justify">
+          <a
+            href={role.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:border-b hover:text-greyText hover:border-greyText"
+          >
+            {role.org}
+          </a>{" "}
+          {role.description}
+        </p>
+      ))}
       <p className="mt-2 font-medium">{profile.summary[1]}</p>
 
       <a

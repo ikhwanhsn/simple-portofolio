@@ -51,7 +51,7 @@ const HELP = [
 
 const whoami = [
   "name:     Ikhwanul Husna",
-  "roles:    Founder @ Syra AI · CTO @ S3Labs",
+  "roles:    Founder @ Syra AI · Agentrail · CTO @ S3Labs",
   "mode:     one human, agent-native ops",
   "stack:    solana · agents · x402 · web3",
 ];
@@ -66,6 +66,7 @@ const agentLines = [
 
 const syra = [
   "Syra AI: agent-native company OS.",
+  "Agentrail: build studio for MCP / x402 / Solana.",
   "S3Labs: builder ecosystem + infra.",
   "Thesis: scale with agents, not headcount.",
 ];

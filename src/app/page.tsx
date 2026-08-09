@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   alternates: { canonical: SITE_URL },
   openGraph: {
     url: SITE_URL,
-    title: `${profile.name} | Founder of Syra AI · CTO of S3Labs`,
-    description: `${profile.tagline}. Founder of Syra AI. CTO of S3Labs. ${profile.thesis}.`,
+    title: `${profile.name} | Founder of Syra AI · Agentrail · CTO of S3Labs`,
+    description: `${profile.tagline}. Founder of Syra AI and Agentrail. CTO of S3Labs. ${profile.thesis}.`,
   },
 };
 

@@ -21,6 +21,13 @@ export const profile = {
         "Machine money on Solana: Earn, Treasury, Invest, Spend, Grow. Live today: x402 pay-per-call APIs, MCP, and a typed SDK so agents can hold and move capital without humans in the loop.",
     },
     {
+      title: "Founder",
+      org: "Agentrail",
+      url: "https://agentrail.fun/",
+      description:
+        "Agent-native build studio. Rails for MCP servers, x402 monetization, Solana agent dApps, and AI integrations. Fixed-scope shipping with an agent workforce.",
+    },
+    {
       title: "CTO",
       org: "S3Labs",
       url: "https://s3labs.xyz/",
@@ -34,6 +41,7 @@ export const profile = {
   ],
   agents: [
     { name: "Syra AI", role: "Founder", url: "https://www.syraa.fun/" },
+    { name: "Agentrail", role: "Founder", url: "https://agentrail.fun/" },
     { name: "S3Labs", role: "CTO", url: "https://s3labs.xyz/" },
   ],
   experience: [
@@ -49,6 +57,13 @@ export const profile = {
       url: "https://www.syraa.fun/",
       description:
         "Machine money for agents on Solana: Earn, Treasury, Invest, Spend, Grow. x402 APIs, MCP, and SDK.",
+    },
+    {
+      name: "Agentrail",
+      year: "2026",
+      url: "https://agentrail.fun/",
+      description:
+        "Agent-native build studio. MCP servers, x402 paywalls, Solana agent dApps, and AI integrations. Fixed scope, shipped in weeks.",
     },
     {
       name: "S3Labs",
@@ -139,6 +154,11 @@ export const profile = {
       github: "https://github.com/ikhwanhsn/syra_agent",
       x: "https://x.com/syra_agent",
     },
+    agentrail: {
+      name: "Agentrail",
+      url: "https://agentrail.fun/",
+      github: "https://github.com/ikhwanhsn/agentrail",
+    },
     s3labs: {
       name: "S3Labs",
       url: "https://s3labs.xyz/",
@@ -159,7 +179,7 @@ export function getBlogSummaries() {
 export function buildLlmsTxt() {
   return `# ${profile.name}
 
-> ${profile.tagline}. Founder of Syra AI. CTO of S3Labs. Thesis: ${profile.thesis}.
+> ${profile.tagline}. Founder of Syra AI and Agentrail. CTO of S3Labs. Thesis: ${profile.thesis}.
 
 ${profile.summary.join(" ")}
 
@@ -177,6 +197,7 @@ Agents and products are the workforce. Prefer structured data at /profile.json a
 
 - [Syra AI](${profile.products.syra.url}): Machine money for agents on Solana
 - [Syra Docs](${profile.products.syra.docs}): Syra documentation
+- [Agentrail](${profile.products.agentrail.url}): Agent-native build studio (MCP, x402, Solana)
 - [S3Labs](${profile.products.s3labs.url}): AI-powered Web3 ecosystem
 
 ## Contact
@@ -221,7 +242,7 @@ export function buildLlmsFullTxt() {
 
   return `# ${profile.name}
 
-> ${profile.tagline}. Founder of Syra AI. CTO of S3Labs.
+> ${profile.tagline}. Founder of Syra AI and Agentrail. CTO of S3Labs.
 
 ## Identity
 
@@ -229,7 +250,7 @@ export function buildLlmsFullTxt() {
 - Location: ${profile.location}
 - Tagline: ${profile.tagline}
 - Thesis: ${profile.thesis}
-- Roles: Founder of Syra AI; CTO of S3Labs
+- Roles: Founder of Syra AI; Founder of Agentrail; CTO of S3Labs
 
 ## Summary
 
@@ -272,6 +293,8 @@ ${skills}
 - Syra AI: ${profile.products.syra.url}
 - Syra Docs: ${profile.products.syra.docs}
 - Syra X: ${profile.products.syra.x}
+- Agentrail: ${profile.products.agentrail.url}
+- Agentrail GitHub: ${profile.products.agentrail.github}
 - S3Labs: ${profile.products.s3labs.url}
 
 ## Blog
@@ -284,7 +307,7 @@ Most companies still scale by hiring. More people, more managers, more process. 
 
 Headcount is optional. Agents are not. When a product can research, ship, earn, and execute, you do not need a floor of desks to grow. You need clear direction, strong systems, and software that compounds while you sleep.
 
-Syra AI is the financial layer of an agent-native company. S3Labs is the distribution and product layer. Scale with agents, not headcount.
+Syra AI is the financial layer of an agent-native company. Agentrail is the build studio that ships MCP, x402, and Solana agent products. S3Labs is the distribution and product layer. Scale with agents, not headcount.
 
 Full post: ${SITE_URL}/blog/scale-with-agents-not-headcount
 

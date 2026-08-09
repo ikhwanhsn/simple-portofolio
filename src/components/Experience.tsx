@@ -4,9 +4,29 @@ type ExperienceProps = {
   embedded?: boolean;
 };
 
-const Experience = ({ embedded = false }: ExperienceProps) => {
-  const { syra, s3labs } = profile.products;
+const proofForOrg = (org: string) => {
+  const { syra, agentrail, s3labs } = profile.products;
+  if (org === syra.name) {
+    return [
+      { label: "Site", href: syra.url },
+      { label: "Docs", href: syra.docs },
+      { label: "X", href: syra.x },
+      { label: "GitHub", href: syra.github },
+    ];
+  }
+  if (org === agentrail.name) {
+    return [
+      { label: "Site", href: agentrail.url },
+      { label: "GitHub", href: agentrail.github },
+    ];
+  }
+  if (org === s3labs.name) {
+    return [{ label: "Site", href: s3labs.url }];
+  }
+  return [];
+};
 
+const Experience = ({ embedded = false }: ExperienceProps) => {
   return (
     <div className={embedded ? undefined : "mt-12"}>
       {!embedded && (
@@ -24,15 +44,7 @@ const Experience = ({ embedded = false }: ExperienceProps) => {
 
         <ul>
           {profile.roles.map((role) => {
-            const proof =
-              role.org === syra.name
-                ? [
-                    { label: "Site", href: syra.url },
-                    { label: "Docs", href: syra.docs },
-                    { label: "X", href: syra.x },
-                    { label: "GitHub", href: syra.github },
-                  ]
-                : [{ label: "Site", href: s3labs.url }];
+            const proof = proofForOrg(role.org);
 
             return (
               <li key={role.org} className="border-b border-outline py-5">

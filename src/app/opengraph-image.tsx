@@ -80,10 +80,12 @@ export default async function OpenGraphImage() {
             color: "rgba(242,242,243,0.55)",
           }}
         >
-          <div style={{ display: "flex", gap: 18 }}>
-            <span>Founder of Syra AI</span>
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+            <span>Syra AI</span>
             <span>·</span>
-            <span>CTO of S3Labs</span>
+            <span>Agentrail</span>
+            <span>·</span>
+            <span>S3Labs</span>
           </div>
           <div style={{ color: "#c0f27f" }}>{profile.thesis}</div>
         </div>
