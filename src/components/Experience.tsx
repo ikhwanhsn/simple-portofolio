@@ -11,14 +11,10 @@ const proofForOrg = (org: string) => {
       { label: "Site", href: syra.url },
       { label: "Docs", href: syra.docs },
       { label: "X", href: syra.x },
-      { label: "GitHub", href: syra.github },
     ];
   }
   if (org === agentrail.name) {
-    return [
-      { label: "Site", href: agentrail.url },
-      { label: "GitHub", href: agentrail.github },
-    ];
+    return [{ label: "Site", href: agentrail.url }];
   }
   if (org === s3labs.name) {
     return [{ label: "Site", href: s3labs.url }];

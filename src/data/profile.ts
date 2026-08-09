@@ -144,20 +144,17 @@ export const profile = {
     x: "https://x.com/Ikhwanhsn",
     instagram: "https://www.instagram.com/ikhwanhsn_/",
     linkedin: "https://www.linkedin.com/in/ikhwanhsn/",
-    // github hidden for now
   },
   products: {
     syra: {
       name: "Syra AI",
       url: "https://www.syraa.fun/",
       docs: "https://docs.syraa.fun/",
-      github: "https://github.com/ikhwanhsn/syra_agent",
       x: "https://x.com/syra_agent",
     },
     agentrail: {
       name: "Agentrail",
       url: "https://agentrail.fun/",
-      github: "https://github.com/ikhwanhsn/agentrail",
     },
     s3labs: {
       name: "S3Labs",
@@ -294,7 +291,6 @@ ${skills}
 - Syra Docs: ${profile.products.syra.docs}
 - Syra X: ${profile.products.syra.x}
 - Agentrail: ${profile.products.agentrail.url}
-- Agentrail GitHub: ${profile.products.agentrail.github}
 - S3Labs: ${profile.products.s3labs.url}
 
 ## Blog
