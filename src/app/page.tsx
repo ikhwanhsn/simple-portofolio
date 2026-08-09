@@ -1,27 +1,24 @@
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import type { Metadata } from "next";
 import Header from "@/components/Header";
-import Misc from "@/components/Misc";
-import Play from "@/components/Play";
 import Profile from "@/components/Profile";
-import Projects from "@/components/Projects";
-import FunProject from "@/components/FunProject";
-import Skills from "@/components/Skills";
-import Experience from "@/components/Experience";
+import WorkTabs from "@/components/WorkTabs";
+import { SITE_URL, profile } from "@/data/profile";
+
+export const metadata: Metadata = {
+  alternates: { canonical: SITE_URL },
+  openGraph: {
+    url: SITE_URL,
+    title: `${profile.name} | Founder of Syra AI · CTO of S3Labs`,
+    description: `${profile.tagline}. Founder of Syra AI. CTO of S3Labs. ${profile.thesis}.`,
+  },
+};
 
 export default function Home() {
   return (
     <main className="mt-12">
       <Header />
       <Profile />
-      <Experience />
-      <Projects />
-      <Misc />
-      <Skills />
-      <FunProject />
-      <Contact />
-      {/* <Play /> */}
-      <Footer />
+      <WorkTabs />
     </main>
   );
 }

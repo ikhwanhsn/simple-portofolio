@@ -1,0 +1,20 @@
+/* TEAM */
+Name: Ikhwanul Husna
+Role: Founder of Syra AI · CTO of S3Labs
+Location: Indonesia
+Thesis: Scale with agents, not headcount
+
+/* CONTACT */
+Email: ikhwanulhusna111@gmail.com
+Telegram: https://t.me/ikhwanhsn
+X: https://x.com/Ikhwanhsn
+LinkedIn: https://www.linkedin.com/in/ikhwanhsn/
+Instagram: https://www.instagram.com/ikhwanhsn_/
+
+/* SITE */
+Standards: llms.txt, profile.json, humans.txt
+LLM index: /llms.txt
+LLM full: /llms-full.txt
+JSON: /profile.json
+Now: /now
+Colophon: Built by one human + agents

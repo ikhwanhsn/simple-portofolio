@@ -1,20 +1,18 @@
 "use client";
 
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import { createContext, useState } from "react";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
-const ThemeContext = createContext("bg-background text-text");
 const Provider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState("bg-background text-text");
   return (
-    <ThemeContext.Provider value={theme}>
-      <div className={theme}>
-        <div className="max-w-lg mx-auto text-sm pt-10 px-5 sm:px-0">
-          <Navbar setTheme={setTheme} />
-          {children}
-        </div>
+    <ThemeProvider>
+      <div className="max-w-lg mx-auto text-sm pt-10 px-5 sm:px-0 min-h-screen">
+        <Navbar />
+        {children}
+        <Footer />
       </div>
-    </ThemeContext.Provider>
+    </ThemeProvider>
   );
 };
 

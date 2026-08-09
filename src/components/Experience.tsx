@@ -1,50 +1,132 @@
-const Experience = () => {
-  const dataExperience = [
-    {
-      title: "Wecash",
-      date: "2025",
-      link: "https://wecash.ai/",
-    },
-    {
-      title: "Tabriiz",
-      date: "2025",
-      link: "https://tabriiz.com/",
-    },
-    {
-      title: "Nova Capital",
-      date: "2024",
-      link: "#",
-    },
-    {
-      title: "Dry Code",
-      date: "2023",
-      link: "#",
-    },
-  ];
+import { profile } from "@/data/profile";
+
+type ExperienceProps = {
+  embedded?: boolean;
+};
+
+const Experience = ({ embedded = false }: ExperienceProps) => {
+  const { syra, s3labs } = profile.products;
+
   return (
-    <main className="mt-12">
-      <h1 className="font-mono text-xs text-greyText">Experience</h1>
-      <ul className="mt-4 font-medium">
-        {dataExperience.map((item, index) => (
-          <a
-            href={item.link}
-            target="_blank"
-            className="flex justify-between items-center font-sans mb-5 ml-1"
-            key={index}
-          >
-            <section className="group">
-              <span className="cursor-pointer hover:text-greyText hover:border-b hover:border-greyText">
-                {item.title}
-              </span>
-              <span className="ml-1 opacity-0 group-hover:opacity-100 text-greyText">
-                ↗
-              </span>
-            </section>
-            <p>{item.date}</p>
-          </a>
-        ))}
-      </ul>
-    </main>
+    <div className={embedded ? undefined : "mt-12"}>
+      {!embedded && (
+        <h2 className="font-mono text-xs text-greyText">Agents</h2>
+      )}
+
+      <div className={embedded ? "mt-0" : "mt-4"}>
+        <div className="flex items-baseline justify-between gap-3 border-b border-outline pb-3">
+          <p className="font-mono text-xs text-greyText">Now</p>
+          <p className="font-mono text-[11px] text-greyText">
+            {profile.workforce.agents} agents · {profile.workforce.humans}{" "}
+            human
+          </p>
+        </div>
+
+        <ul>
+          {profile.roles.map((role) => {
+            const proof =
+              role.org === syra.name
+                ? [
+                    { label: "Site", href: syra.url },
+                    { label: "Docs", href: syra.docs },
+                    { label: "X", href: syra.x },
+                    { label: "GitHub", href: syra.github },
+                  ]
+                : [{ label: "Site", href: s3labs.url }];
+
+            return (
+              <li key={role.org} className="border-b border-outline py-5">
+                <div className="flex items-baseline justify-between gap-3">
+                  <h3 className="font-medium leading-snug">
+                    <a
+                      href={role.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-greyText hover:underline hover:underline-offset-4 hover:decoration-outline"
+                    >
+                      {role.org}
+                      <span className="ml-1.5 text-greyText" aria-hidden>
+                        ↗
+                      </span>
+                    </a>
+                  </h3>
+                  <p className="shrink-0 font-mono text-[11px] text-greyText">
+                    {role.title}
+                  </p>
+                </div>
+                <p className="mt-2 font-medium text-greyText leading-relaxed">
+                  {role.description}
+                </p>
+                <p className="mt-3 flex flex-wrap gap-x-3 gap-y-1 font-mono text-[11px] text-greyText">
+                  {proof.map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-text hover:underline hover:underline-offset-4"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </p>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      <div className="mt-10">
+        <div className="flex items-baseline justify-between gap-3 border-b border-outline pb-3">
+          <p className="font-mono text-xs text-greyText">Before agents</p>
+          <p className="font-mono text-[11px] text-greyText">
+            {profile.experience.length} stops
+          </p>
+        </div>
+
+        <ul>
+          {profile.experience.map((item, index) => {
+            const content = (
+              <div className="flex items-baseline justify-between gap-3">
+                <span className="inline-flex items-baseline gap-3">
+                  <span className="font-mono text-[11px] text-greyText">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-medium group-hover:text-greyText">
+                    {item.name}
+                  </span>
+                  {item.url ? (
+                    <span className="text-greyText opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                      ↗
+                    </span>
+                  ) : null}
+                </span>
+                <span className="shrink-0 font-mono text-[11px] text-greyText">
+                  {item.year}
+                </span>
+              </div>
+            );
+
+            return (
+              <li key={item.name} className="border-b border-outline">
+                {item.url ? (
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block py-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text"
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <div className="py-4">{content}</div>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </div>
   );
 };
 

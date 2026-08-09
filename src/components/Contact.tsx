@@ -1,53 +1,63 @@
+import {
+  FaInstagram,
+  FaLinkedinIn,
+  FaTelegramPlane,
+} from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
-import { FaInstagram, FaGithub, FaLinkedinIn } from "react-icons/fa";
-import cv from "../../public/img/cv.png";
-import Image from "next/image";
+import { profile } from "@/data/profile";
 
 const Contact = () => {
-  const contactList = ["email", "instagram", "github", "linkedin"];
+  const socials = [
+    {
+      id: "email",
+      href: `mailto:${profile.contact.email}`,
+      icon: <MdOutlineEmail size={18} />,
+      label: "Email",
+    },
+    {
+      id: "telegram",
+      href: profile.contact.telegram,
+      icon: <FaTelegramPlane size={18} />,
+      label: "Telegram",
+    },
+    {
+      id: "x",
+      href: profile.contact.x,
+      icon: <FaXTwitter size={16} />,
+      label: "X",
+    },
+    {
+      id: "instagram",
+      href: profile.contact.instagram,
+      icon: <FaInstagram size={18} />,
+      label: "Instagram",
+    },
+    {
+      id: "linkedin",
+      href: profile.contact.linkedin,
+      icon: <FaLinkedinIn size={18} />,
+      label: "LinkedIn",
+    },
+  ];
+
   return (
-    <main>
-      <h1 className="font-mono text-xs text-greyText mt-12 mb-7">Contact</h1>
-      <section className="flex gap-3">
-        {contactList.map((item, index) => (
-          <section key={index}>
-            <a
-              href={
-                item === "email"
-                  ? "mailto:ikhwanulhusna111@gmail.com"
-                  : item === "instagram"
-                  ? "https://www.instagram.com/ikhwanhsn21/"
-                  : item === "github"
-                  ? "https://github.com/ikhwanhsn"
-                  : item === "linkedin"
-                  ? "https://www.linkedin.com/in/ikhwanhsn/"
-                  : item === "cv"
-                  ? "https://drive.google.com/file/d/1kL5yQk0m7F6fFb4gkQlLb8p5JG8wQl4a/view?usp=sharing"
-                  : ""
-              }
-              target="_blank"
-              className="inline-block"
-            >
-              <aside className="p-3 text-slate-700 rounded-full bg-backgroundCard hover:text-text hover:bg-cardHover group">
-                {item === "email" && <MdOutlineEmail size={18} />}
-                {item === "instagram" && <FaInstagram size={18} />}
-                {item === "github" && <FaGithub size={18} />}
-                {item === "linkedin" && <FaLinkedinIn size={18} />}
-                {item === "cv" && (
-                  <Image
-                    src={cv}
-                    alt="cv"
-                    width={18}
-                    height={18}
-                    className="opacity-80 group-hover:opacity-100"
-                  />
-                )}
-              </aside>
-            </a>
-          </section>
-        ))}
-      </section>
-    </main>
+    <section className="mt-6 flex gap-3 flex-wrap" aria-label="Contact">
+      {socials.map((item) => (
+        <a
+          key={item.id}
+          href={item.href}
+          target={item.id === "email" ? undefined : "_blank"}
+          rel={item.id === "email" ? undefined : "noopener noreferrer"}
+          aria-label={item.label}
+          className="inline-block"
+        >
+          <aside className="p-3 text-icon rounded-full bg-backgroundCard hover:text-text hover:bg-cardHover">
+            {item.icon}
+          </aside>
+        </a>
+      ))}
+    </section>
   );
 };
 
