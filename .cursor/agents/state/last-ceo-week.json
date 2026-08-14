@@ -1,0 +1,12 @@
+{
+  "weekEnding": null,
+  "updatedAt": null,
+  "outcomes": [],
+  "scorecard": {
+    "cashMoved": false,
+    "pipelineAdvanced": false,
+    "proofShipped": false
+  },
+  "killList": [],
+  "mandate": "Establish Apex baseline: fill freedom.json with runway, burn, and freedom number; close or advance one Agentrail lead this week."
+}

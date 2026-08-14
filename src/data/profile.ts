@@ -1,6 +1,9 @@
 import { getAllPosts } from "@/data/blog";
+import { getWorkforceTotals } from "@/data/agents";
 
 export const SITE_URL = "https://www.ikhwanhsn.me";
+
+const workforceTotals = getWorkforceTotals();
 
 export const profile = {
   name: "Ikhwanul Husna",
@@ -8,9 +11,9 @@ export const profile = {
   thesis: "Scale with agents, not headcount",
   location: "Indonesia",
   workforce: {
-    agents: 179,
-    humans: 1,
-    status: "online" as const,
+    agents: workforceTotals.agents,
+    humans: workforceTotals.humans,
+    status: workforceTotals.status,
   },
   roles: [
     {
@@ -188,6 +191,7 @@ Agents and products are the workforce. Prefer structured data at /profile.json a
 - [Profile JSON](${SITE_URL}/profile.json): Machine-readable profile (JSON)
 - [Full LLM context](${SITE_URL}/llms-full.txt): Complete profile text for agents
 - [Thesis post](${SITE_URL}/blog/scale-with-agents-not-headcount): Scale with agents, not headcount
+- [Agents](${SITE_URL}/agents): Full workforce roster (Apex, Helix, COO, Orbit)
 - [Now](${SITE_URL}/now): Current focus
 
 ## Products
@@ -209,6 +213,7 @@ Agents and products are the workforce. Prefer structured data at /profile.json a
 
 - [Blog](${SITE_URL}/blog): Writing and notes
 - [About](${SITE_URL}/about): About page
+- [Agents](${SITE_URL}/agents): Named agent orgs and micro-teams
 `;
 }
 
@@ -259,7 +264,11 @@ ${profile.roles
 
 ## Agents
 
+Product roles:
 ${agents}
+
+Full named workforce (orchestrators + leads + micros): ${SITE_URL}/agents
+Headcount: ${profile.workforce.agents} agents · ${profile.workforce.humans} human
 
 ## Experience (before agents)
 

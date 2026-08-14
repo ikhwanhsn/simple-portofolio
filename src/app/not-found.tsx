@@ -37,6 +37,12 @@ export default function NotFound() {
           Blog
         </Link>
         <Link
+          href="/agents"
+          className="hover:border-b hover:border-greyText focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text"
+        >
+          Agents
+        </Link>
+        <Link
           href="/now"
           className="hover:border-b hover:border-greyText focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text"
         >

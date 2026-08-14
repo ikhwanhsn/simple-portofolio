@@ -1,0 +1,11 @@
+{
+  "date": null,
+  "updatedAt": null,
+  "mode": "daily",
+  "weekday": null,
+  "routedAgents": [],
+  "bottleneck": null,
+  "oneAction": null,
+  "notToday": [],
+  "freedomHint": "baseline not established — first /growth will seed"
+}

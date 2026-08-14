@@ -1,8 +1,8 @@
 export const now = {
-  updated: "2026-08-09",
+  updated: "2026-08-15",
   displayDate: "Aug 2026",
   focus:
-    "Shipping Syra AI as machine money for agents, growing Agentrail as the build studio, and sharpening S3Labs as the builder ecosystem around that thesis.",
+    "Running Apex (personal Founder OS) for daily growth toward financial freedom — shipping Syra AI as machine money for agents, growing Agentrail as the build studio, and sharpening S3Labs as the builder ecosystem around that thesis.",
   building: [
     {
       title: "Syra AI",

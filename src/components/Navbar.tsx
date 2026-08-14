@@ -7,7 +7,7 @@ import BrandMark from "@/components/BrandMark";
 import { useTheme } from "@/components/ThemeProvider";
 
 const Navbar = () => {
-  const navbar = ["Work", "About", "Blog", "Now"] as const;
+  const navbar = ["Work", "About", "Blog", "Agents", "Now"] as const;
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === "dark";
