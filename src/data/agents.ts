@@ -11,6 +11,8 @@ export type AgentLead = {
 
 export type AgentOrg = {
   id: string;
+  /** main = Syra / S3Labs / Up Only Fund; other = founder OS + anonymous desks */
+  tier: "main" | "other";
   name: string;
   orchestrator: string;
   product: string;
@@ -19,122 +21,15 @@ export type AgentOrg = {
   leads: AgentLead[];
 };
 
-/** Public workforce roster — Apex + Helix + COO + anonymous other orgs.
- * Real headcount = sum of named agents (orchestrator + leads + micros) across all orgs.
- * Never name anonymous ventures (stealth products, trading desks) publicly.
+/** Public workforce roster.
+ * Main: Helix (Syra), COO (S3Labs), Atlas (Up Only Fund).
+ * Other: Apex Founder OS + anonymous stealth/desk orgs (never name those products).
+ * Headcount = live sum of orchestrator + leads + micros.
  */
 export const agentOrgs: AgentOrg[] = [
   {
-    id: "apex",
-    name: "Apex",
-    orchestrator: "Apex",
-    product: "Founder OS",
-    url: null,
-    thesis: "Personal life + revenue growth toward financial freedom. Routes product work out; never rebuilds product orgs.",
-    leads: [
-      {
-        name: "Vince",
-        role: "Revenue",
-        micros: [
-          { name: "Cole", focus: "Close" },
-          { name: "Carla", focus: "Collect" },
-          { name: "Parker", focus: "Package" },
-          { name: "Miles", focus: "Stream mix" },
-        ],
-      },
-      {
-        name: "Holly",
-        role: "Freedom finance",
-        micros: [
-          { name: "Ruth", focus: "Runway" },
-          { name: "Bea", focus: "Budget" },
-          { name: "Tess", focus: "Freedom target" },
-          { name: "Brody", focus: "Buffer" },
-        ],
-      },
-      {
-        name: "Maya",
-        role: "Personal brand",
-        micros: [
-          { name: "Seth", focus: "Site sync" },
-          { name: "Ivy", focus: "Inbound" },
-          { name: "Polly", focus: "Position" },
-          { name: "Pearl", focus: "Proof bio" },
-        ],
-      },
-      {
-        name: "Iris",
-        role: "Content & proof",
-        micros: [
-          { name: "Quinn", focus: "Caption" },
-          { name: "Leo", focus: "Ship log" },
-          { name: "Faye", focus: "Video" },
-          { name: "Theo", focus: "Thread" },
-        ],
-      },
-      {
-        name: "Dean",
-        role: "Client pipeline",
-        micros: [
-          { name: "Scott", focus: "Scout" },
-          { name: "Owen", focus: "Offer" },
-          { name: "Penny", focus: "Pitch" },
-          { name: "Felix", focus: "Follow-up" },
-        ],
-      },
-      {
-        name: "Remy",
-        role: "Venture dispatch",
-        micros: [
-          { name: "Sasha", focus: "Syra → Helix" },
-          { name: "Logan", focus: "S3Labs → COO" },
-          { name: "Tori", focus: "Other projects" },
-          { name: "Travis", focus: "Other desk" },
-        ],
-      },
-      {
-        name: "Piper",
-        role: "Energy & cadence",
-        micros: [
-          { name: "Ford", focus: "Deep work" },
-          { name: "Rae", focus: "Recovery" },
-          { name: "Stella", focus: "Streak" },
-          { name: "Cade", focus: "Capacity cap" },
-        ],
-      },
-      {
-        name: "Flynn",
-        role: "Skill leverage",
-        micros: [
-          { name: "Gwen", focus: "Skill gap" },
-          { name: "Drake", focus: "Drill" },
-          { name: "Ava", focus: "Apply" },
-        ],
-      },
-      {
-        name: "Nora",
-        role: "Strategy & focus",
-        micros: [
-          { name: "Mara", focus: "Mandate" },
-          { name: "Kane", focus: "Kill list" },
-          { name: "Reid", focus: "Rank" },
-          { name: "Rita", focus: "Review" },
-        ],
-      },
-      {
-        name: "Blake",
-        role: "Hire",
-        micros: [
-          { name: "Gina", focus: "Gap" },
-          { name: "Dana", focus: "Draft" },
-          { name: "Chris", focus: "Crew" },
-          { name: "Pat", focus: "Patch" },
-        ],
-      },
-    ],
-  },
-  {
     id: "helix",
+    tier: "main",
     name: "Helix",
     orchestrator: "Helix",
     product: "Syra AI",
@@ -242,6 +137,7 @@ export const agentOrgs: AgentOrg[] = [
   },
   {
     id: "coo",
+    tier: "main",
     name: "COO",
     orchestrator: "COO",
     product: "S3Labs",
@@ -346,7 +242,200 @@ export const agentOrgs: AgentOrg[] = [
     ],
   },
   {
+    id: "uof",
+    tier: "main",
+    name: "Atlas",
+    orchestrator: "Atlas",
+    product: "Up Only Fund",
+    url: "https://uponlyfund.com",
+    thesis:
+      "Mandate-first Solana allocator backed by Syra. Daily growth on thesis, terminal, $UPONLY sleeve, and honest disclosures — never invented returns.",
+    leads: [
+      {
+        name: "Scribe",
+        role: "Content & narrative",
+        micros: [
+          { name: "Quill", focus: "Thesis thread" },
+          { name: "Folio", focus: "Book update" },
+          { name: "Tip", focus: "Friday tip" },
+          { name: "Chronicle", focus: "Ship log" },
+        ],
+      },
+      {
+        name: "Herald",
+        role: "Distribution",
+        micros: [
+          { name: "Echo", focus: "Reply / amplify" },
+          { name: "Pack", focus: "Share pack" },
+          { name: "Depth", focus: "Telegram" },
+        ],
+      },
+      {
+        name: "Spark",
+        role: "Funnel & activation",
+        micros: [
+          { name: "Funnel", focus: "Funnel" },
+          { name: "Beacon", focus: "Terminal" },
+          { name: "Gate", focus: "Access gate" },
+        ],
+      },
+      {
+        name: "Vault",
+        role: "Token & liquidity",
+        micros: [
+          { name: "Listing", focus: "Listings" },
+          { name: "Venue", focus: "Venues" },
+          { name: "Cap", focus: "Honest MC" },
+        ],
+      },
+      {
+        name: "Gauge",
+        role: "Analytics & scorecard",
+        micros: [
+          { name: "Score", focus: "Scorecard" },
+          { name: "Trial", focus: "Experiments" },
+        ],
+      },
+      {
+        name: "Oath",
+        role: "Trust & disclosures",
+        micros: [
+          { name: "Claim", focus: "Claim audit" },
+          { name: "Disclose", focus: "Disclosures" },
+        ],
+      },
+      {
+        name: "Forge",
+        role: "Growth engineering",
+        micros: [
+          { name: "Trace", focus: "Instrumentation" },
+          { name: "Meta", focus: "SEO / meta" },
+          { name: "Patch", focus: "Growth fix" },
+        ],
+      },
+      {
+        name: "Sentinel",
+        role: "Security & wallet trust",
+        micros: [
+          { name: "Secrets", focus: "Secrets" },
+          { name: "Wallet", focus: "Wallet path" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "apex",
+    tier: "other",
+    name: "Apex",
+    orchestrator: "Apex",
+    product: "Other projects",
+    url: null,
+    thesis: "Personal life + revenue growth toward financial freedom. Routes product work out; never rebuilds product orgs.",
+    leads: [
+      {
+        name: "Vince",
+        role: "Revenue",
+        micros: [
+          { name: "Cole", focus: "Close" },
+          { name: "Carla", focus: "Collect" },
+          { name: "Parker", focus: "Package" },
+          { name: "Miles", focus: "Stream mix" },
+        ],
+      },
+      {
+        name: "Holly",
+        role: "Freedom finance",
+        micros: [
+          { name: "Ruth", focus: "Runway" },
+          { name: "Bea", focus: "Budget" },
+          { name: "Tess", focus: "Freedom target" },
+          { name: "Brody", focus: "Buffer" },
+        ],
+      },
+      {
+        name: "Maya",
+        role: "Personal brand",
+        micros: [
+          { name: "Seth", focus: "Site sync" },
+          { name: "Ivy", focus: "Inbound" },
+          { name: "Polly", focus: "Position" },
+          { name: "Pearl", focus: "Proof bio" },
+        ],
+      },
+      {
+        name: "Iris",
+        role: "Content & proof",
+        micros: [
+          { name: "Quinn", focus: "Caption" },
+          { name: "Leo", focus: "Ship log" },
+          { name: "Faye", focus: "Video" },
+          { name: "Theo", focus: "Thread" },
+        ],
+      },
+      {
+        name: "Dean",
+        role: "Client pipeline",
+        micros: [
+          { name: "Scott", focus: "Scout" },
+          { name: "Owen", focus: "Offer" },
+          { name: "Penny", focus: "Pitch" },
+          { name: "Felix", focus: "Follow-up" },
+        ],
+      },
+      {
+        name: "Remy",
+        role: "Venture dispatch",
+        micros: [
+          { name: "Sasha", focus: "Syra → Helix" },
+          { name: "Logan", focus: "S3Labs → COO" },
+          { name: "Tori", focus: "UOF → Atlas" },
+          { name: "Travis", focus: "Other desks" },
+        ],
+      },
+      {
+        name: "Piper",
+        role: "Energy & cadence",
+        micros: [
+          { name: "Ford", focus: "Deep work" },
+          { name: "Rae", focus: "Recovery" },
+          { name: "Stella", focus: "Streak" },
+          { name: "Cade", focus: "Capacity cap" },
+        ],
+      },
+      {
+        name: "Flynn",
+        role: "Skill leverage",
+        micros: [
+          { name: "Gwen", focus: "Skill gap" },
+          { name: "Drake", focus: "Drill" },
+          { name: "Ava", focus: "Apply" },
+        ],
+      },
+      {
+        name: "Nora",
+        role: "Strategy & focus",
+        micros: [
+          { name: "Mara", focus: "Mandate" },
+          { name: "Kane", focus: "Kill list" },
+          { name: "Reid", focus: "Rank" },
+          { name: "Rita", focus: "Review" },
+        ],
+      },
+      {
+        name: "Blake",
+        role: "Hire",
+        micros: [
+          { name: "Gina", focus: "Gap" },
+          { name: "Dana", focus: "Draft" },
+          { name: "Chris", focus: "Crew" },
+          { name: "Pat", focus: "Patch" },
+        ],
+      },
+    ],
+  },
+  {
     id: "other",
+    tier: "other",
     name: "Other",
     orchestrator: "Other",
     product: "Other projects",
@@ -439,6 +528,7 @@ export const agentOrgs: AgentOrg[] = [
   },
   {
     id: "desk",
+    tier: "other",
     name: "Desk",
     orchestrator: "Desk",
     product: "Other projects",
@@ -537,7 +627,7 @@ export const agentOrgs: AgentOrg[] = [
         ],
       },
     ],
-  },
+  }
 ];
 
 export function countOrgAgents(org: AgentOrg): number {
@@ -545,18 +635,44 @@ export function countOrgAgents(org: AgentOrg): number {
   return 1 + org.leads.length + micros;
 }
 
+export function getMainOrgs(): AgentOrg[] {
+  return agentOrgs.filter((o) => o.tier === "main");
+}
+
+export function getOtherOrgs(): AgentOrg[] {
+  return agentOrgs.filter((o) => o.tier === "other");
+}
+
 export function getWorkforceTotals() {
-  const byOrg = agentOrgs.map((org) => ({
+  const main = getMainOrgs().map((org) => ({
     id: org.id,
     name: org.name,
     product: org.product,
+    tier: "main" as const,
     count: countOrgAgents(org),
   }));
-  const agents = byOrg.reduce((n, o) => n + o.count, 0);
+  const otherOrgs = getOtherOrgs();
+  const otherCount = otherOrgs.reduce((n, o) => n + countOrgAgents(o), 0);
+  const agents = main.reduce((n, o) => n + o.count, 0) + otherCount;
   return {
     agents,
     humans: 1,
-    orgs: byOrg,
+    orgs: [
+      ...main,
+      {
+        id: "other-group",
+        name: "Other",
+        product: "Other projects",
+        tier: "other" as const,
+        count: otherCount,
+      },
+    ],
+    otherOrgs: otherOrgs.map((org) => ({
+      id: org.id,
+      name: org.name,
+      product: org.product,
+      count: countOrgAgents(org),
+    })),
     status: "online" as const,
   };
 }

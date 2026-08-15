@@ -191,7 +191,7 @@ Agents and products are the workforce. Prefer structured data at /profile.json a
 - [Profile JSON](${SITE_URL}/profile.json): Machine-readable profile (JSON)
 - [Full LLM context](${SITE_URL}/llms-full.txt): Complete profile text for agents
 - [Thesis post](${SITE_URL}/blog/scale-with-agents-not-headcount): Scale with agents, not headcount
-- [Agents](${SITE_URL}/agents): Full workforce roster (Apex, Helix, COO, Other projects)
+- [Agents](${SITE_URL}/agents): Full workforce roster (Syra Helix, S3Labs COO, Up Only Fund Atlas, Other)
 - [Now](${SITE_URL}/now): Current focus
 
 ## Products
@@ -269,6 +269,7 @@ ${agents}
 
 Full named workforce (orchestrators + leads + micros): ${SITE_URL}/agents
 Headcount: ${profile.workforce.agents} agents · ${profile.workforce.humans} human
+Main: Helix (Syra AI), COO (S3Labs), Atlas (Up Only Fund). Other projects: founder OS + anonymous desks.
 
 ## Experience (before agents)
 

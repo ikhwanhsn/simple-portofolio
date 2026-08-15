@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  agentOrgs,
   countOrgAgents,
+  getMainOrgs,
+  getOtherOrgs,
   getWorkforceTotals,
+  type AgentOrg,
 } from "@/data/agents";
 import { SITE_URL, profile } from "@/data/profile";
 
 const totals = getWorkforceTotals();
+const mainOrgs = getMainOrgs();
+const otherOrgs = getOtherOrgs();
 
 export const metadata: Metadata = {
   title: "Agents",
-  description: `${totals.agents} agents · ${totals.humans} human. The workforce behind ${profile.name}'s companies — Apex, Helix (Syra), COO (S3Labs), and other projects.`,
+  description: `${totals.agents} agents · ${totals.humans} human. Main orgs: Helix (Syra), COO (S3Labs), Atlas (Up Only Fund) — plus other projects.`,
   alternates: { canonical: `${SITE_URL}/agents` },
   openGraph: {
     title: "Agents",
@@ -19,6 +23,75 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/agents`,
   },
 };
+
+function OrgSection({
+  org,
+  indexLabel,
+}: {
+  org: AgentOrg;
+  indexLabel: string;
+}) {
+  const count = countOrgAgents(org);
+
+  return (
+    <section className="mt-14" id={org.id}>
+      <p className="font-mono text-xs text-greyText">
+        {indexLabel} / {org.name}
+      </p>
+      <div className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+        <h2 className="font-medium text-xl tracking-tight">{org.orchestrator}</h2>
+        <span className="font-mono text-[11px] text-greyText">
+          orchestrator · {count} agents
+        </span>
+      </div>
+      <p className="mt-1 font-mono text-[11px] text-greyText">
+        {org.product}
+        {org.url ? (
+          <>
+            {" · "}
+            <a
+              href={org.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:border-b hover:border-greyText hover:text-text"
+            >
+              {org.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+            </a>
+          </>
+        ) : null}
+      </p>
+      <p className="mt-4 font-medium text-greyText leading-relaxed">
+        {org.thesis}
+      </p>
+
+      <ul className="mt-8 space-y-7">
+        {org.leads.map((lead) => (
+          <li key={`${org.id}-${lead.name}`}>
+            <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+              <span className="font-medium text-text">{lead.name}</span>
+              <span className="font-mono text-[11px] text-greyText">
+                {lead.role}
+              </span>
+            </div>
+            <p className="mt-2 font-mono text-[11px] text-greyText leading-relaxed">
+              {lead.micros.map((micro, i) => (
+                <span key={micro.name}>
+                  {i > 0 ? (
+                    <span className="text-outline mx-1.5" aria-hidden>
+                      ·
+                    </span>
+                  ) : null}
+                  <span className="text-text/80">{micro.name}</span>
+                  <span className="text-greyText"> {micro.focus}</span>
+                </span>
+              ))}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
 
 const AgentsPage = () => {
   return (
@@ -35,9 +108,9 @@ const AgentsPage = () => {
         {totals.status} · {totals.agents} agents · {totals.humans} human
       </p>
       <p className="mt-5 font-medium text-greyText leading-relaxed">
-        {profile.thesis}. One human directing named agent orgs across founder
-        ops, Syra, S3Labs, and other projects — each lead runs a micro-team for
-        one narrow job.
+        {profile.thesis}. Main agent orgs run Syra, S3Labs, and Up Only Fund.
+        Everything else — founder OS and anonymous desks — sits under other
+        projects.
       </p>
 
       <section className="mt-12" aria-label="Org headcount">
@@ -61,75 +134,31 @@ const AgentsPage = () => {
         </ul>
       </section>
 
-      {agentOrgs.map((org, orgIndex) => {
-        const count = countOrgAgents(org);
-        const index = String(orgIndex + 1).padStart(2, "0");
+      <p className="mt-14 font-mono text-xs text-greyText">Main</p>
+      {mainOrgs.map((org, i) => (
+        <OrgSection
+          key={org.id}
+          org={org}
+          indexLabel={String(i + 1).padStart(2, "0")}
+        />
+      ))}
 
-        return (
-          <section key={org.id} className="mt-14" id={org.id}>
-            <p className="font-mono text-xs text-greyText">
-              {index} / {org.name}
-            </p>
-            <div className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <h2 className="font-medium text-xl tracking-tight">
-                {org.orchestrator}
-              </h2>
-              <span className="font-mono text-[11px] text-greyText">
-                orchestrator · {count} agents
-              </span>
-            </div>
-            <p className="mt-1 font-mono text-[11px] text-greyText">
-              {org.product}
-              {org.url ? (
-                <>
-                  {" · "}
-                  <a
-                    href={org.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:border-b hover:border-greyText hover:text-text"
-                  >
-                    {org.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
-                  </a>
-                </>
-              ) : null}
-            </p>
-            <p className="mt-4 font-medium text-greyText leading-relaxed">
-              {org.thesis}
-            </p>
-
-            <ul className="mt-8 space-y-7">
-              {org.leads.map((lead) => (
-                <li key={`${org.id}-${lead.name}`}>
-                  <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-                    <span className="font-medium text-text">{lead.name}</span>
-                    <span className="font-mono text-[11px] text-greyText">
-                      {lead.role}
-                    </span>
-                  </div>
-                  <p className="mt-2 font-mono text-[11px] text-greyText leading-relaxed">
-                    {lead.micros.map((micro, i) => (
-                      <span key={micro.name}>
-                        {i > 0 ? (
-                          <span className="text-outline mx-1.5" aria-hidden>
-                            ·
-                          </span>
-                        ) : null}
-                        <span className="text-text/80">{micro.name}</span>
-                        <span className="text-greyText"> {micro.focus}</span>
-                      </span>
-                    ))}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </section>
-        );
-      })}
+      <p className="mt-16 font-mono text-xs text-greyText">Other projects</p>
+      <p className="mt-3 font-medium text-greyText leading-relaxed">
+        Founder OS plus anonymous ventures. Stealth products stay unnamed on
+        purpose.
+      </p>
+      {otherOrgs.map((org, i) => (
+        <OrgSection
+          key={org.id}
+          org={org}
+          indexLabel={String(i + 1).padStart(2, "0")}
+        />
+      ))}
 
       <p className="mt-14 font-medium text-greyText leading-relaxed">
-        Product work stays in its own org. Apex routes through Remy → Helix,
-        COO, other projects, or trading desks — scale without duplicating teams.
+        Product work stays in its own org. Apex hands off to Helix, COO, Atlas
+        (Up Only Fund), or other desks — scale without duplicating teams.
       </p>
 
       <p className="mt-12 font-mono text-xs text-greyText">
