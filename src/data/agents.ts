@@ -19,7 +19,10 @@ export type AgentOrg = {
   leads: AgentLead[];
 };
 
-/** Public workforce roster — Apex + Helix + COO + Orbit (matches ~179 headcount). */
+/** Public workforce roster — Apex + Helix + COO + anonymous other orgs.
+ * Real headcount = sum of named agents (orchestrator + leads + micros) across all orgs.
+ * Never name anonymous ventures (stealth products, trading desks) publicly.
+ */
 export const agentOrgs: AgentOrg[] = [
   {
     id: "apex",
@@ -85,8 +88,8 @@ export const agentOrgs: AgentOrg[] = [
         micros: [
           { name: "Sasha", focus: "Syra → Helix" },
           { name: "Logan", focus: "S3Labs → COO" },
-          { name: "Tori", focus: "Trancepad → Orbit" },
-          { name: "Travis", focus: "Trading → Atlas" },
+          { name: "Tori", focus: "Other projects" },
+          { name: "Travis", focus: "Other desk" },
         ],
       },
       {
@@ -343,93 +346,194 @@ export const agentOrgs: AgentOrg[] = [
     ],
   },
   {
-    id: "orbit",
-    name: "Orbit",
-    orchestrator: "orbit",
-    product: "Trancepad",
+    id: "other",
+    name: "Other",
+    orchestrator: "Other",
+    product: "Other projects",
     url: null,
     thesis:
-      "Bonding-curve launchpad growth. One backlog item per day — activation, UX, reliability, fees, distribution.",
+      "Anonymous and stealth ventures. Same three-tier pattern — orchestrator, leads, and micro-teams — kept off the public brand map on purpose.",
     leads: [
       {
-        name: "spark",
+        name: "Nova",
         role: "Activation",
         micros: [
-          { name: "key", focus: "Onboarding" },
-          { name: "lift", focus: "Launch wizard" },
-          { name: "deal", focus: "First buy UX" },
+          { name: "Key", focus: "Onboarding" },
+          { name: "Lift", focus: "First win" },
+          { name: "Deal", focus: "Conversion" },
         ],
       },
       {
-        name: "iris",
-        role: "Frontend UX",
+        name: "Jade",
+        role: "Product UX",
         micros: [
-          { name: "hero", focus: "Landing" },
-          { name: "scout", focus: "Discovery" },
-          { name: "flash", focus: "Perf feel" },
+          { name: "Hero", focus: "Landing" },
+          { name: "Scout", focus: "Discovery" },
+          { name: "Flash", focus: "Perf feel" },
         ],
       },
       {
-        name: "bolt",
-        role: "Backend",
+        name: "Rex",
+        role: "Platform",
         micros: [
-          { name: "wire", focus: "HTTP API" },
-          { name: "sync", focus: "Indexer" },
-          { name: "pulse", focus: "Realtime" },
+          { name: "Wire", focus: "API" },
+          { name: "Sync", focus: "Data sync" },
+          { name: "Pulse", focus: "Realtime" },
         ],
       },
       {
-        name: "vault",
-        role: "Contracts",
+        name: "Cruz",
+        role: "Core systems",
         micros: [
-          { name: "curve", focus: "Bonding curve" },
-          { name: "apex", focus: "Graduation" },
-          { name: "toll", focus: "Fees" },
+          { name: "Curve", focus: "Core logic" },
+          { name: "Rise", focus: "Milestones" },
+          { name: "Toll", focus: "Economics" },
         ],
       },
       {
-        name: "echo",
-        role: "Growth marketing",
+        name: "Echo",
+        role: "Growth",
         micros: [
-          { name: "ink", focus: "Copy" },
-          { name: "buzz", focus: "Campaigns" },
-          { name: "ally", focus: "Partnerships" },
+          { name: "Ink", focus: "Copy" },
+          { name: "Buzz", focus: "Campaigns" },
+          { name: "Ally", focus: "Partners" },
         ],
       },
       {
-        name: "quill",
-        role: "Content & SEO",
+        name: "Quill",
+        role: "Content",
         micros: [
-          { name: "page", focus: "Blog" },
-          { name: "crawl", focus: "Technical SEO" },
-          { name: "guide", focus: "In-app docs" },
+          { name: "Page", focus: "Writing" },
+          { name: "Crawl", focus: "Discovery" },
+          { name: "Guide", focus: "Docs" },
         ],
       },
       {
-        name: "nest",
-        role: "Community & DevRel",
+        name: "Nest",
+        role: "Community",
         micros: [
-          { name: "vibe", focus: "Social" },
-          { name: "hook", focus: "Integrator DX" },
-          { name: "aid", focus: "Support" },
+          { name: "Vibe", focus: "Social" },
+          { name: "Hook", focus: "Integrators" },
+          { name: "Aid", focus: "Support" },
         ],
       },
       {
-        name: "prism",
-        role: "Data analytics",
+        name: "Prism",
+        role: "Analytics",
         micros: [
-          { name: "trace", focus: "Events" },
-          { name: "funnel", focus: "Funnel" },
-          { name: "trial", focus: "Experiments" },
+          { name: "Trace", focus: "Events" },
+          { name: "Funnel", focus: "Funnel" },
+          { name: "Trial", focus: "Experiments" },
         ],
       },
       {
-        name: "shield",
+        name: "Shield",
         role: "Quality & security",
         micros: [
-          { name: "lens", focus: "Verification" },
-          { name: "spec", focus: "Tests" },
-          { name: "guard", focus: "Security" },
+          { name: "Lens", focus: "Verification" },
+          { name: "Spec", focus: "Tests" },
+          { name: "Guard", focus: "Security" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "desk",
+    name: "Desk",
+    orchestrator: "Desk",
+    product: "Other projects",
+    url: null,
+    thesis:
+      "Anonymous research and execution desk. Quant-style leads and micro-teams — kept off the public brand map on purpose.",
+    leads: [
+      {
+        name: "Margo",
+        role: "Market intelligence",
+        micros: [
+          { name: "Romy", focus: "Regime" },
+          { name: "Skye", focus: "Scanner" },
+          { name: "Veda", focus: "Event risk" },
+          { name: "Tate", focus: "Charts" },
+        ],
+      },
+      {
+        name: "Sol",
+        role: "Strategy research",
+        micros: [
+          { name: "Inez", focus: "Signals" },
+          { name: "Fern", focus: "Features" },
+          { name: "Hope", focus: "Hypothesis" },
+          { name: "Reed", focus: "Edge review" },
+        ],
+      },
+      {
+        name: "Bryce",
+        role: "Backtest & validation",
+        micros: [
+          { name: "Oscar", focus: "IS/OOS" },
+          { name: "Wade", focus: "Walk-forward" },
+          { name: "Otto", focus: "Overfit audit" },
+          { name: "Monte", focus: "Robustness" },
+        ],
+      },
+      {
+        name: "Rowan",
+        role: "Risk & portfolio",
+        micros: [
+          { name: "Voss", focus: "Sizing" },
+          { name: "Dawn", focus: "Drawdown" },
+          { name: "Cora", focus: "Correlation" },
+          { name: "Max", focus: "Exposure" },
+        ],
+      },
+      {
+        name: "Eden",
+        role: "Execution engine",
+        micros: [
+          { name: "Sloane", focus: "Signal engine" },
+          { name: "Brooke", focus: "Broker layer" },
+          { name: "Clay", focus: "Cost model" },
+          { name: "Storm", focus: "State integrity" },
+        ],
+      },
+      {
+        name: "Dove",
+        role: "Data engineering",
+        micros: [
+          { name: "Kai", focus: "Ingest" },
+          { name: "Qual", focus: "Data quality" },
+          { name: "Sonny", focus: "Symbols" },
+          { name: "Nori", focus: "Storage" },
+        ],
+      },
+      {
+        name: "Pia",
+        role: "Performance analytics",
+        micros: [
+          { name: "Mia", focus: "Metrics" },
+          { name: "Eva", focus: "Equity curve" },
+          { name: "Flint", focus: "Forensics" },
+          { name: "Riva", focus: "Daily report" },
+        ],
+      },
+      {
+        name: "Ines",
+        role: "Infra & reliability",
+        micros: [
+          { name: "Sean", focus: "Scheduler" },
+          { name: "Uma", focus: "Uptime" },
+          { name: "Cy", focus: "CI gates" },
+          { name: "Wren", focus: "Secrets" },
+        ],
+      },
+      {
+        name: "Lane",
+        role: "Live readiness",
+        micros: [
+          { name: "Grier", focus: "Promote gate" },
+          { name: "Neo", focus: "Test path" },
+          { name: "Sable", focus: "Safety rails" },
+          { name: "Hank", focus: "Kill switch" },
         ],
       },
     ],

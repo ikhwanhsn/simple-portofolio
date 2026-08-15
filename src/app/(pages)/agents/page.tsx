@@ -11,7 +11,7 @@ const totals = getWorkforceTotals();
 
 export const metadata: Metadata = {
   title: "Agents",
-  description: `${totals.agents} agents · ${totals.humans} human. The workforce behind ${profile.name}'s companies — Apex, Helix (Syra), COO (S3Labs), Orbit (Trancepad).`,
+  description: `${totals.agents} agents · ${totals.humans} human. The workforce behind ${profile.name}'s companies — Apex, Helix (Syra), COO (S3Labs), and other projects.`,
   alternates: { canonical: `${SITE_URL}/agents` },
   openGraph: {
     title: "Agents",
@@ -36,8 +36,8 @@ const AgentsPage = () => {
       </p>
       <p className="mt-5 font-medium text-greyText leading-relaxed">
         {profile.thesis}. One human directing named agent orgs across founder
-        ops, Syra, S3Labs, and Trancepad — each lead runs a micro-team for one
-        narrow job.
+        ops, Syra, S3Labs, and other projects — each lead runs a micro-team for
+        one narrow job.
       </p>
 
       <section className="mt-12" aria-label="Org headcount">
@@ -129,7 +129,7 @@ const AgentsPage = () => {
 
       <p className="mt-14 font-medium text-greyText leading-relaxed">
         Product work stays in its own org. Apex routes through Remy → Helix,
-        COO, Orbit, or Atlas — scale without duplicating teams.
+        COO, other projects, or trading desks — scale without duplicating teams.
       </p>
 
       <p className="mt-12 font-mono text-xs text-greyText">

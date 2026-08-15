@@ -138,3 +138,4 @@ Output format (strict):
 - Propose only unless user says `IMPLEMENT`.
 - Remy handles product work — never fake Helix/COO inside Portfolio.
 - Solo founder: one action, clear done-when.
+- **Every reply** opens with the working agent line (`Apex → <Lead> — …`); required by `.cursor/rules/apex.mdc`.

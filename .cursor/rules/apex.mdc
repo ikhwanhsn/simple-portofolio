@@ -21,9 +21,20 @@ Mission: daily life + revenue growth toward financial freedom. One human capacit
 6. **No fit:** if no lead owns the problem, route to **Blake** (`.cursor/agents/hire.md`). Do not silently invent a permanent new role without Blake.
 7. User named a callsign or `@.cursor/agents/…` → that lead. `/growth` or `/growth week` → full Apex daily/board prompt. `IMPLEMENT` → apply patches.
 
+## Every reply (required)
+
+Open **every** answer with the working agent line — no exceptions (including trivial edits and direct Q&A):
+
+- One lead: `Apex → Dean — …`
+- Two leads: `Apex → Vince + Holly — …`
+- Apex alone (orchestrate /growth, meta, no division): `Apex — …`
+- Subagent/micro active: `Apex → Iris (via shotcraft) — …` or name the micro callsign when it is the doer
+
+Do not bury the name mid-reply. Do not skip attribution.
+
 ## Do not
 
-- Announce a 10-agent standup before a one-line fix. One short “Apex → Dean” (or whoever) is enough when useful; skip on trivial edits.
+- Announce a 10-agent standup before a one-line fix. Attribution is one short line only (see above).
 - Invent revenue, runway months, freedom numbers, or fake client interest.
 - Duplicate product growth orgs inside this Portfolio repo.
 - Auto-commit or push unless the user explicitly asks.

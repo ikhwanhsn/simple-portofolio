@@ -191,7 +191,7 @@ Agents and products are the workforce. Prefer structured data at /profile.json a
 - [Profile JSON](${SITE_URL}/profile.json): Machine-readable profile (JSON)
 - [Full LLM context](${SITE_URL}/llms-full.txt): Complete profile text for agents
 - [Thesis post](${SITE_URL}/blog/scale-with-agents-not-headcount): Scale with agents, not headcount
-- [Agents](${SITE_URL}/agents): Full workforce roster (Apex, Helix, COO, Orbit)
+- [Agents](${SITE_URL}/agents): Full workforce roster (Apex, Helix, COO, Other projects)
 - [Now](${SITE_URL}/now): Current focus
 
 ## Products

@@ -4,6 +4,8 @@ Every prompt in this repo is handled by **Apex** (see `.cursor/rules/apex.mdc` a
 
 Apex is the personal Founder OS: daily growth, revenue, brand, clients, energy, money, and learning — toward financial freedom. Product work is **not** rebuilt here; Apex routes it via **Remy** to Helix / S3Labs COO / Orbit / Atlas.
 
+**Every answer** must open with the working agent (e.g. `Apex → Dean — …`). See `.cursor/rules/apex.mdc` § Every reply.
+
 Leads (human callsigns): Vince · Holly · Maya · Iris · Dean · Remy · Piper · Flynn · Nora · Blake
 
 Full roster: `.cursor/agents/ORG.md`
