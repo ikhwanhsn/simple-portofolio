@@ -15,6 +15,100 @@ export type BlogPost = {
 
 export const posts: BlogPost[] = [
   {
+    slug: "syra-ship-log-september-2026",
+    title: "Syra ship log: what is live now",
+    date: "2026-09-10",
+    displayDate: "Sep 10, 2026",
+    label: "Ship log",
+    summary:
+      "An honest product update from Syra: Spend rails that settle, Earn desks that hardened, Trade chrome that got simpler, and surfaces I cut.",
+    sections: [
+      {
+        paragraphs: [
+          "Syra AI is still the same bet: machine money for agents on Solana. The last stretch was not a rebrand. It was shipping Spend that agents can pay for, Earn that can open and close without lying about state, and cutting desks that were diluting the rail.",
+          "As of September 10, 2026, public metrics on api.syraa.fun show about 55k paid calls in the last seven days across roughly 117 paying wallets, with lifetime settled volume in the low five figures USD. Those numbers move daily. The point is proof of settlement, not a vanity chart.",
+        ],
+      },
+      {
+        heading: "What shipped",
+        paragraphs: [
+          "Spend stayed the live pillar: x402 pay-per-call APIs, MCP, and the typed SDK. Settlement accepts expanded across Solana, Base, BNB, Algorand, X Layer, and Dexter multi-chain offers, with facilitator failover. Circle Gateway work landed for Base; Arc is on the rails roadmap and is not claimed live until capabilities say so.",
+          "Product chrome got tighter. Swap and Bridge folded into one Trade surface. Earn gained clearer position detail (DLMM range charts, closed timestamps, hold duration) and AyeLabs hardening around rotation, cooldowns, valuation, and on-chain close verification. Telegram buy alerts for $SYRA went live via Helius for community signal, not as the hero CTA.",
+          "I also pruned. Retired desks and analyzers that were not the Spend north star came out. Harbor Robinhood LP was retired after earlier LP experiments. Pillar status is exposed so agents and humans see the same honesty: Spend live, Invest and Earn in beta, Treasury infra, Grow on the roadmap.",
+        ],
+      },
+      {
+        heading: "Why this update",
+        paragraphs: [
+          "Public notes should track what actually ships. If you are integrating, start at the marketplace or MCP docs, fund a Solana USDC payer, and make a paid call. If you are watching the thesis, the ship is the rail, not another homepage pillar.",
+          "Next proof is external demand on MCP and partners, not more feature theater. Cut desks. Keep the rail.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "x402-mcp-rails-agents-pay-on",
+    title: "x402 and MCP: the rails agents actually pay on",
+    date: "2026-09-07",
+    displayDate: "Sep 7, 2026",
+    label: "Technical",
+    summary:
+      "How Syra Spend works in practice: 402 at the call site, multi-network accepts, MCP tools, and no free public sandbox.",
+    sections: [
+      {
+        paragraphs: [
+          "Agents do not want an API key spreadsheet. They want a tool, a price, and a settle path. Syra Spend is built around that loop: the HTTP route returns 402 Payment Required until USDC settles, then the call completes.",
+          "That is x402 as product constraint, not a buzzword. Discovery lives on the live API: /.well-known/x402, OpenAPI, and GET /x402/capabilities so clients can see which networks are actually on.",
+        ],
+      },
+      {
+        heading: "What the client has to do",
+        paragraphs: [
+          "A machine client reads the 402 accept offers, signs payment, retries with the payment proof, and continues. Humans can use the same surface through the marketplace or the agent chat approval gate when a wallet needs an explicit pay step.",
+          "MCP wraps the same Spend tools for Cursor and Claude-style hosts. The curated profile exposes the high-value set; the full profile codegen maps the larger tool catalog. Auto-pay needs a funded payer keypair. There is no free shared sandbox on production. Self-hosted /dev exists only when you run the API yourself outside production.",
+        ],
+      },
+      {
+        heading: "Design rules I will not break",
+        paragraphs: [
+          "Price for machines. Fail loudly when settlement fails. Do not market unpaid 402 volume as GMV. Do not claim a network is live until capabilities say true. Keep facilitator failover boring and documented.",
+          "If your agent can discover a tool, fund a wallet, and settle a micro-call without a human procurement cycle, the rail is working. Everything else in Syra should serve that loop or get cut.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "cut-desks-keep-the-rail",
+    title: "Cut desks, keep the rail",
+    date: "2026-09-03",
+    displayDate: "Sep 3, 2026",
+    label: "Operating",
+    summary:
+      "How I am operating Syra with one human capacity: prune experiments, publish honest pillar status, and route product work to Helix instead of theater.",
+    sections: [
+      {
+        paragraphs: [
+          "One human cannot run five pillars at full feature parity and still ship Spend that agents pay for. Capacity is the constraint. The operating rule is simple: keep the rail, cut the desks that do not prove demand.",
+          "That is why recent work retired analyzers and LP experiments that were not the north star, and why GET /pillars exists. Agents should see the same status I claim in public: live, beta, infra, or roadmap — not five green checkmarks.",
+        ],
+      },
+      {
+        heading: "What stays human",
+        paragraphs: [
+          "Kill list judgment. Partnership taste. Whether a desk graduates or dies. Public narrative that does not invent metrics. Those stay with me.",
+          "Product execution routes through Helix in the Syra repo. Personal growth and cash routing sit in Apex on the portfolio side. I do not rebuild product growth orgs inside the brand site. Relay exists so the founder OS points at the right workforce instead of improvising a second org chart.",
+        ],
+      },
+      {
+        heading: "What I measure",
+        paragraphs: [
+          "Paid calls and unique paying wallets from the live metrics API. Settlement health. External MCP demand, not self-calls counted as proof. Whether a ship reduces decision load or adds another surface I have to babysit.",
+          "If a desk only grows when I personally babysit it, it is not agent-native. If Spend settles while I sleep and the kill list stays honest, the model is working.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "scale-with-agents-not-headcount",
     title: "Scale with agents, not headcount",
     date: "2026-08-09",

@@ -1,7 +1,7 @@
 import { getAllPosts } from "@/data/blog";
 import { getWorkforceTotals } from "@/data/agents";
 
-export const SITE_URL = "https://www.ikhwanhsn.me";
+export const SITE_URL = "https://ikhwanhsn.site";
 
 const workforceTotals = getWorkforceTotals();
 

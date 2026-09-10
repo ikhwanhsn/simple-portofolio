@@ -1,13 +1,13 @@
 export const now = {
-  updated: "2026-08-15",
-  displayDate: "Aug 2026",
+  updated: "2026-09-10",
+  displayDate: "Sep 2026",
   focus:
-    "Running Apex (personal Founder OS) for daily growth toward financial freedom — shipping Syra AI as machine money for agents, growing Agentrail as the build studio, and sharpening S3Labs as the builder ecosystem around that thesis.",
+    "Running Apex (personal Founder OS) for daily growth toward financial freedom — shipping Syra AI Spend rails (x402 + MCP), pruning desks that are not the north star, growing Agentrail as the build studio, and sharpening S3Labs as the builder ecosystem.",
   building: [
     {
       title: "Syra AI",
       detail:
-        "x402 pay-per-call APIs, MCP, and typed SDK so agents can earn, hold, and move capital on Solana.",
+        "Live Spend: x402 pay-per-call APIs, MCP, and typed SDK. Earn/Invest in beta. Cut non-rail desks; keep settlement honest.",
       url: "https://www.syraa.fun/",
     },
     {
