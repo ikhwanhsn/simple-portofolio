@@ -1,6 +1,8 @@
+import type { ReactNode } from "react";
+
 type Stat = {
   label: string;
-  value: string;
+  value: ReactNode;
 };
 
 const AssetStats = ({ stats }: { stats: Stat[] }) => {

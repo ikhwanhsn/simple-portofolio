@@ -22,11 +22,12 @@ function parseTab(raw: string | null): TabId {
   return raw === "dex" ? "dex" : "invest";
 }
 
-function dexLabel(token: DeskToken) {
+function dexLabel(token: DeskToken & { pair?: string }) {
+  if (token.pair?.trim()) return token.pair.trim();
   const symbol = token.symbol?.trim();
-  if (symbol && symbol !== "?") return symbol;
+  if (symbol && symbol !== "?") return `${symbol}/SOL`;
   const name = token.name?.trim();
-  if (name && name !== "?") return name;
+  if (name && name !== "?") return `${name}/SOL`;
   return `${token.mint.slice(0, 4)}…${token.mint.slice(-4)}`;
 }
 
@@ -39,7 +40,14 @@ const AssetsTabs = () => {
 
   const [investRows, setInvestRows] = useState<InvestSummary[] | null>(null);
   const [investError, setInvestError] = useState<string | null>(null);
-  const [dexTokens, setDexTokens] = useState<DeskToken[] | null>(null);
+  const [dexTokens, setDexTokens] = useState<
+    Array<
+      DeskToken & {
+        pair?: string;
+        quoteSymbol?: string;
+      }
+    > | null
+  >(null);
   const [dexError, setDexError] = useState<string | null>(null);
   const [dexLoading, setDexLoading] = useState(false);
 
@@ -66,7 +74,17 @@ const AssetsTabs = () => {
         headers: { Accept: "application/json" },
       });
       const body = (await res.json().catch(() => null)) as
-        | { success: true; data: { tokens: DeskToken[] } }
+        | {
+            success: true;
+            data: {
+              tokens: Array<
+                DeskToken & {
+                  pair?: string;
+                  quoteSymbol?: string;
+                }
+              >;
+            };
+          }
         | { success: false; error?: string }
         | null;
       if (!body || !body.success) {
@@ -221,9 +239,19 @@ const AssetsTabs = () => {
               <li key={`${token.mint}-${index}`} className="border-b border-outline">
                 <Link
                   href={`/assets/dex/${token.mint}`}
-                  className="block py-4 font-medium hover:text-greyText focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text"
+                  className="flex items-baseline justify-between gap-3 py-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text"
                 >
-                  {dexLabel(token)}
+                  <span>
+                    <span className="font-medium">{dexLabel(token)}</span>
+                  </span>
+                  <span className="shrink-0 font-mono text-xs text-greyText">
+                    {formatUsd(token.priceUsd)}
+                    {token.priceChange24hPct != null ? (
+                      <span className="ml-2">
+                        {formatPct(token.priceChange24hPct)}
+                      </span>
+                    ) : null}
+                  </span>
                 </Link>
               </li>
             ))}

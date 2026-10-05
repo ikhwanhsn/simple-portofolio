@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import AssetStats from "@/components/AssetStats";
 import Sparkline from "@/components/Sparkline";
+import TokenMintActions from "@/components/TokenMintActions";
 import { SITE_URL } from "@/data/profile";
 import { fetchDexUsdCloses } from "@/lib/charts";
 import {
@@ -137,7 +138,7 @@ const DexTokenPage = async ({ params }: PageProps) => {
           { label: "Market cap", value: formatCompactUsd(token.marketCapUsd) },
           { label: "Liquidity", value: formatCompactUsd(token.liquidityUsd) },
           { label: "Volume 24h", value: formatCompactUsd(token.volume24hUsd) },
-          { label: "Mint", value: truncateMint(mint) },
+          { label: "Mint", value: <TokenMintActions mint={mint} label={ticker} /> },
         ]}
       />
 
