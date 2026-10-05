@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AssetStats from "@/components/AssetStats";
+import Sparkline from "@/components/Sparkline";
 import { SITE_URL } from "@/data/profile";
+import { fetchDexUsdCloses } from "@/lib/charts";
 import {
   fetchDexToken,
   formatCompactUsd,
@@ -44,7 +46,10 @@ const DexTokenPage = async ({ params }: PageProps) => {
   const mint = params.mint?.trim() ?? "";
   if (!isLikelySolanaMint(mint)) notFound();
 
-  const out = await fetchDexToken(mint);
+  const [out, closes] = await Promise.all([
+    fetchDexToken(mint),
+    fetchDexUsdCloses(mint),
+  ]);
   if (!out.success) {
     return (
       <main className="mt-12 min-h-screen mb-4">
@@ -109,10 +114,21 @@ const DexTokenPage = async ({ params }: PageProps) => {
         ) : null}
       </p>
 
-      <p className="mt-8 font-medium text-greyText leading-relaxed">
-        Chart candles aren’t on the free Syra desk for most Solana tokens.
-        Stats below are the live snapshot.
-      </p>
+      {closes.length >= 2 ? (
+        <div className="mt-8 border-b border-outline pb-6">
+          <p className="font-mono text-[11px] text-greyText mb-3">
+            7-day close
+          </p>
+          <Sparkline
+            values={closes}
+            label={`${ticker} USD closes, last 7 days`}
+          />
+        </div>
+      ) : (
+        <p className="mt-8 font-medium text-greyText leading-relaxed">
+          Chart candles aren’t available for this mint right now.
+        </p>
+      )}
 
       <AssetStats
         stats={[

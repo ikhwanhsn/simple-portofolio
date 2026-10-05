@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useCallback, useEffect, useId, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
-  fetchDexBoosted,
   fetchInvestSummaries,
   formatPct,
   formatUsd,
@@ -62,14 +61,26 @@ const AssetsTabs = () => {
   const loadDex = useCallback(async () => {
     setDexLoading(true);
     setDexError(null);
-    const out = await fetchDexBoosted(20);
-    setDexLoading(false);
-    if (!out.success) {
+    try {
+      const res = await fetch("/api/meteora/portfolio", {
+        headers: { Accept: "application/json" },
+      });
+      const body = (await res.json().catch(() => null)) as
+        | { success: true; data: { tokens: DeskToken[] } }
+        | { success: false; error?: string }
+        | null;
+      if (!body || !body.success) {
+        setDexTokens(null);
+        setDexError("Couldn’t load Meteora positions.");
+        return;
+      }
+      setDexTokens(body.data.tokens ?? []);
+    } catch {
       setDexTokens(null);
-      setDexError("Couldn’t load DEX tokens from Syra.");
-      return;
+      setDexError("Couldn’t load Meteora positions.");
+    } finally {
+      setDexLoading(false);
     }
-    setDexTokens(out.data.tokens ?? []);
   }, []);
 
   useEffect(() => {
@@ -202,7 +213,7 @@ const AssetsTabs = () => {
           <p className="font-mono text-xs text-greyText">Loading tokens…</p>
         ) : dexTokens.length === 0 ? (
           <p className="font-medium text-greyText">
-            No boosted Solana tokens right now. Check back in a minute.
+            No open Meteora DLMM positions right now.
           </p>
         ) : (
           <ul>

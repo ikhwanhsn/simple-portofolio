@@ -6,11 +6,11 @@ import { SITE_URL, profile } from "@/data/profile";
 
 export const metadata: Metadata = {
   title: "Assets",
-  description: `Public BTC, SOL, XRP and Solana DEX tokens via Syra — from ${profile.name}. Not personal holdings.`,
+  description: `BTC, SOL, XRP plus live Meteora LP tokens — from ${profile.name}.`,
   alternates: { canonical: `${SITE_URL}/assets` },
   openGraph: {
     title: "Assets",
-    description: `Public BTC, SOL, XRP and Solana DEX tokens via Syra — from ${profile.name}. Not personal holdings.`,
+    description: `BTC, SOL, XRP plus live Meteora LP tokens — from ${profile.name}.`,
     url: `${SITE_URL}/assets`,
   },
 };
@@ -23,7 +23,7 @@ const AssetsPage = () => {
         Invest / DEX
       </h1>
       <p className="mt-3 font-medium text-greyText leading-relaxed">
-        Public market data via Syra, not personal holdings.
+        Invest coins via Syra. DEX is open Meteora DLMM positions.
       </p>
 
       <Suspense

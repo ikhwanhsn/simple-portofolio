@@ -11,10 +11,10 @@ import {
   formatPct,
   formatUsd,
   INVEST_ASSETS,
-  ohlcCloses,
   resolveInvestAsset,
   type InvestAssetId,
 } from "@/lib/syra";
+import { fetchInvestUsdCloses } from "@/lib/charts";
 
 export const revalidate = 60;
 
@@ -51,7 +51,10 @@ const InvestAssetPage = async ({ params }: PageProps) => {
   ]);
 
   const data = coin.success ? coin.data : null;
-  const closes = ohlc.success ? ohlcCloses(ohlc.data.ohlc) : [];
+  const closes = await fetchInvestUsdCloses(
+    id,
+    ohlc.success ? ohlc.data.ohlc : []
+  );
   const price = data?.priceUsd ?? null;
 
   return (
