@@ -50,6 +50,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.6,
     },
+    {
+      url: `${SITE_URL}/assets`,
+      lastModified: new Date("2026-10-05"),
+      changeFrequency: "hourly",
+      priority: 0.6,
+    },
     ...blogUrls,
     {
       url: `${SITE_URL}/llms.txt`,

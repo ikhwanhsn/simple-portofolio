@@ -7,13 +7,13 @@ import BrandMark from "@/components/BrandMark";
 import { useTheme } from "@/components/ThemeProvider";
 
 const Navbar = () => {
-  const navbar = ["Work", "About", "Blog", "Agents", "Now"] as const;
+  const navbar = ["Work", "About", "Blog", "Agents", "Now", "Assets"] as const;
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === "dark";
 
   return (
-    <nav className="flex justify-between items-center text-greyText px-1 border-b border-outline pb-3 font-mono text-xs">
+    <nav className="flex flex-wrap justify-between items-center gap-y-2 text-greyText px-1 border-b border-outline pb-3 font-mono text-xs">
       <div className="flex items-center gap-3 min-w-0">
         <Link
           href="/"
@@ -22,7 +22,7 @@ const Navbar = () => {
         >
           <BrandMark className="size-6" />
         </Link>
-        <ul className="flex items-center justify-center gap-2">
+        <ul className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
           {navbar.map((item, index) => {
             const href = item === "Work" ? "/" : `/${item.toLowerCase()}`;
             const isActive =

@@ -193,6 +193,7 @@ Agents and products are the workforce. Prefer structured data at /profile.json a
 - [Thesis post](${SITE_URL}/blog/scale-with-agents-not-headcount): Scale with agents, not headcount
 - [Agents](${SITE_URL}/agents): Full workforce roster (Syra Helix, S3Labs COO, Up Only Fund Atlas, Other)
 - [Now](${SITE_URL}/now): Current focus
+- [Assets](${SITE_URL}/assets): Public BTC / SOL / XRP and Solana DEX tokens via Syra
 
 ## Products
 
@@ -214,6 +215,7 @@ Agents and products are the workforce. Prefer structured data at /profile.json a
 - [Blog](${SITE_URL}/blog): Writing and notes
 - [About](${SITE_URL}/about): About page
 - [Agents](${SITE_URL}/agents): Named agent orgs and micro-teams
+- [Assets](${SITE_URL}/assets): Invest and DEX market pages
 `;
 }
 
@@ -268,6 +270,7 @@ Product roles:
 ${agents}
 
 Full named workforce (orchestrators + leads + micros): ${SITE_URL}/agents
+Public market board (Invest BTC/SOL/XRP + Solana DEX): ${SITE_URL}/assets
 Headcount: ${profile.workforce.agents} agents · ${profile.workforce.humans} human
 Main: Helix (Syra AI), COO (S3Labs), Atlas (Up Only Fund). Other projects: founder OS + anonymous desks.
 
@@ -323,6 +326,7 @@ Full post: ${SITE_URL}/blog/scale-with-agents-not-headcount
 - ${SITE_URL}/llms-full.txt
 - ${SITE_URL}/profile.json
 - ${SITE_URL}/robots.txt
+- ${SITE_URL}/assets
 `;
 }
 

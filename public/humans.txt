@@ -17,4 +17,5 @@ LLM index: /llms.txt
 LLM full: /llms-full.txt
 JSON: /profile.json
 Now: /now
+Assets: /assets
 Colophon: Built by one human + agents

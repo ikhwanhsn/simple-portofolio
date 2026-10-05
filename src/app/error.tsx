@@ -56,6 +56,12 @@ export default function Error({
         >
           Agents
         </Link>
+        <Link
+          href="/assets"
+          className="hover:border-b hover:border-greyText focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text"
+        >
+          Assets
+        </Link>
       </div>
     </main>
   );
